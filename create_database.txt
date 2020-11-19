@@ -1,0 +1,40 @@
+Microsoft Windows [Version 10.0.19041.508]
+(c) Корпорация Майкрософт (Microsoft Corporation), 2020. Все права защищены.
+
+C:\Users\Лена Борисова>psql -U postgres
+Пароль пользователя postgres:
+psql (10.12)
+ПРЕДУПРЕЖДЕНИЕ: Кодовая страница консоли (866) отличается от основной
+                страницы Windows (1251).
+                8-битовые (русские) символы могут отображаться некорректно.
+                Подробнее об этом смотрите документацию psql, раздел
+                "Notes for Windows users".
+Введите "help", чтобы получить справку.
+
+postgres=# \q
+
+C:\Users\Лена Борисова>chcp 1251
+Текущая кодовая страница: 1251
+
+C:\Users\Лена Борисова>psql -U postgres
+Пароль пользователя postgres:
+psql (10.12)
+Введите "help", чтобы получить справку.
+
+postgres=# create database vkinder;
+CREATE DATABASE
+postgres=# create user vkinder with password 'borisova';
+CREATE ROLE
+postgres=# alter database vkinder owner to vkinder;
+ALTER DATABASE
+postgres=# \q
+
+C:\Users\Лена Борисова>psql
+Для дополнительной информации попробуйте "psql --help".
+
+C:\Users\Лена Борисова>psql -U vkinder
+Пароль пользователя vkinder:
+psql (10.12)
+Введите "help", чтобы получить справку.
+
+vkinder=>
