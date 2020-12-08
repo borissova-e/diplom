@@ -19,24 +19,25 @@ class User(Base):
     __tablename__ = 'user'
 
     id = sq.Column(sq.Integer, primary_key=True)
-    vk_id = sq.Column(sq.String, unique=True)
+    vk_id = sq.Column(sq.Integer, unique=True)
     first_name = sq.Column(sq.String)
     second_name = sq.Column(sq.String)
-    age = sq.Column(sq.Integer)
+    age = sq.Column(sq.String)
     range_age = sq.Column(IntRangeType)
     gender = sq.Column(sq.String)
-    city = sq.Column(sq.String)
+    city = sq.Column(sq.JSON)
     dating_users = relationship('DatingUser')
 
 class DatingUser(Base):
     __tablename__ = 'dating_user'
 
     id = sq.Column(sq.Integer, primary_key=True)
-    vk_id = sq.Column(sq.String, unique=True)
+    vk_id = sq.Column(sq.Integer, unique=True)
     first_name = sq.Column(sq.String)
     second_name = sq.Column(sq.String)
-    age = sq.Column(sq.Integer)
+    age = sq.Column(sq.String)
     id_User = sq.Column(sq.Integer, sq.ForeignKey('user.id'))
+    black_list = sq.Column(sq.Boolean)
     users = relationship('User', back_populates='dating_users')
     photo = relationship('Photo')
 
